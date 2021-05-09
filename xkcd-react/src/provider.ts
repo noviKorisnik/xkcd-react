@@ -7,7 +7,7 @@ export const GetXkcdComic = async (comicId?: number): Promise<XkcdComic> => {
     }
     path.push('info.0.json');
 
-    const url: string = (path.join('/'));
+    const url: string = `https://localhost:5001/Proxy?url=${encodeURI(path.join('/'))}`;
 
     return Object.assign(new XkcdComic(), await (await fetch(url)).json());
 }
